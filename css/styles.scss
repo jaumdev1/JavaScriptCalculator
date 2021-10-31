@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color:#F0F0F1;
+}
+html{
+    height: 100vh;
+}
+header{
+    width: 100%;
+    height: 200px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+header h1, p{
+    animation: title-animation 1s ease-in-out normal;
+}
+body{
+    background: linear-gradient(#000,#4b204b);
+    height: 100vh;
+    width: 100%;
+ 
+}
+.calculator{
+    
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    max-width: 380px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+
+.result{
+    grid-column: 2/5;
+    justify-self: end;
+    align-self: center;
+    animation: button-animation 1s ease-in-out normal;
+    font-size: 2rem;
+}
+.num, .ops, .equals, .clear{
+    justify-self: center;
+    align-self: center;
+    color: #F0F0F1;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    background: transparent;
+    border-radius: 15px;
+    border-width: 1px;
+    border-style:solid;
+    border-color: rgba($color: #fff, $alpha:  0.5);
+    box-shadow: 3px 3px white;
+    animation: button-animation 1s ease-in-out normal;
+    
+}
+.reset {
+    background: rgba(66, 0, 57, 0.28);
+    color:#ffffff;
+    font-weight: 400;
+    margin-left: -77px;
+    padding: 0.5em 1em;
+    position: absolute;
+      top: -20em;
+      left: 50%;
+    width: auto;
+    height: auto;
+    
+    &:hover {
+      background: #c97874;
+      color: #100a1c;    
+    }
+    
+    /* When button is revealed */
+    &.show {
+      top: 20em;
+      animation: fadein 4s;
+    }
+}
+
+@keyframes button-animation {
+    from{
+        opacity: 0%;
+        transform: translateX(150%);
+       }
+    to{
+        transform: translatex(0%);
+        opacity: 100%;
+         
+    }
+  
+}
+@keyframes title-animation {
+    from{
+        opacity: 0%;
+        transform: translateY(-50%);
+       }
+    to{
+        transform: translateY(0%);
+        opacity: 100%;
+         
+    }
+  
+}
+
+@media (max-width:380px) {
+    .num, .ops, .equals, .clear{
+        width: 70px;
+        height: 70px;
+    }
+    .calculator{
+        padding-inline: 10px;
+    }
+    
+}
+@media (max-width:350px) {
+    .num, .ops, .equals, .clear{
+        width: 50px;
+        height: 50px;
+    }
+    .calculator{
+        padding-inline: 10px;
+    }
+    
+}
+ @keyframes broken {
+    0% {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  
+    5% {
+      transform: rotate(5deg);
+    }
+  
+    15% {
+      transform: rotate(-5deg);
+    }
+  
+    20% {
+      transform: rotate(5deg);
+    }
+  
+    25% {
+      transform: rotate(-5deg);
+    }
+  
+    50% {
+      transform: rotate(45deg);
+    }
+  
+    70% {
+      transform: translate3d(0,2000px,0);
+      opacity: 1;
+    }
+  
+    75% {
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translate3d(0,-2000px,0);
+    }
+  }
+  
+  /* Reset button fadein */
+  @keyframes fadein {
+    0% {
+      top: 20em;
+      opacity: 0;
+    }
+    
+    50% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .broken {
+    animation: broken 3s;
+    transform: translate3d(0,-2000px,0);
+    opacity: 0;
+  }
